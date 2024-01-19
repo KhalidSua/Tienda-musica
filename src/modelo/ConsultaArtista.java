@@ -23,6 +23,7 @@ public class ConsultaArtista extends Conexion{
 			ps.setString(4, pro.getNacionalidad());
 			ps.setString(5, pro.getEstado());
 			ps.execute();
+			System.out.println("agregando artista");
 			return true;
 			
 			
@@ -111,7 +112,7 @@ public class ConsultaArtista extends Conexion{
 		Connection con = getConexion();
 		
 		String sql = "SELECT * FROM Artista WHERE Codigo_artista = ?";
-		
+		System.out.println(sql);
 		try {
 			ps = con.prepareStatement(sql);
 			ps.setString(1, pro.getCodigo_artista());
@@ -124,6 +125,7 @@ public class ConsultaArtista extends Conexion{
 				pro.setNombre_artista(rs.getString("Nombre Artista"));
 				pro.setGenero_musica(rs.getString("Genero Musica"));
 				pro.setNacionalidad(rs.getString("Nacionalidad"));
+				System.out.println("busvando artista");
 				return true;
 			}
 			return false;

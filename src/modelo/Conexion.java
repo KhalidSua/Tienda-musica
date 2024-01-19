@@ -13,10 +13,10 @@ public class Conexion {
 		// TODO Auto-generated constructor stub
 	}
 	
-	private final String base = "tienda musica";
+	private final String base = "tienda_musica";
 	private final String user = "root";
-	private final String password = "1234";
-	private final String url = "jdbc:mysql://localhost:3306/tienda_musica"+base;
+	private final String password = "";
+	private final String url = "jdbc:mysql://localhost:3306/"+base;
 	private Connection con = null;
 	
 	public Connection getConexion(){

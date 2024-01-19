@@ -40,6 +40,7 @@ public class ctrlArtista implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == frm.btnGuardar) {
+			System.out.println("guardar");
 			mod.setCodigo_artista(frm.txtCodigo.getText());
 			mod.setNombre_artista(frm.txtNombre.getText());
 			mod.setGenero_musica(frm.txtGeneroMusical.getText());
