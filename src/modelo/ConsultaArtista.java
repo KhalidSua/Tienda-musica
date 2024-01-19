@@ -13,11 +13,11 @@ public class ConsultaArtista extends Conexion{
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 		
-		String sql = "INSER INTO Artista (codigo_artista, nombre_artista,genero_musica, nacionalidad, estado)VALUES (?,?,?,?,?)";
+		String sql = "INSER INTO artistas (codigo_artista, nombre_artista,genero_musical_artista, nacionalidad_artista, estado)VALUES (?,?,?,?,?)";
 		
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, pro.getCodigo_artista());
+			ps.setInt(1, pro.getCodigo_artista());
 			ps.setString(2, pro.getNombre_artista());
 			ps.setString(3, pro.getGenero_musica());
 			ps.setString(4, pro.getNacionalidad());
@@ -47,16 +47,15 @@ public class ConsultaArtista extends Conexion{
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 		
-		String sql = "UPDATE Artista SET codigo_artista = ?, nombre_artista = ?,genero_musica = ?, nacionalidad = ?, estado = ?";
+		String sql = "UPDATE artistas SET nombre_artista = ?,genero_musical_artista = ?, nacionalidad_artista = ?, estado = ?, WHERE codigo_artista";
 		
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, pro.getCodigo_artista());
+			ps.setInt(1, pro.getCodigo_artista());
 			ps.setString(2, pro.getNombre_artista());
 			ps.setString(3, pro.getGenero_musica());
 			ps.setString(4, pro.getNacionalidad());
 			ps.setString(5, pro.getEstado());
-			ps.setInt(6, pro.getId());
 			ps.execute();
 			return true;
 			
@@ -81,11 +80,11 @@ public class ConsultaArtista extends Conexion{
 		PreparedStatement ps = null;
 		Connection con = getConexion();
 		
-		String sql = "DELETE FROM Artista WHERE id = ?";
+		String sql = "DELETE FROM artistas WHERE codigo_artista = ?";
 		
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setInt(1, pro.getId());
+			ps.setInt(1, pro.getCodigo_artista());
 			ps.execute();
 			return true;
 			
@@ -111,21 +110,22 @@ public class ConsultaArtista extends Conexion{
 		ResultSet rs = null;
 		Connection con = getConexion();
 		
-		String sql = "SELECT * FROM Artista WHERE Codigo_artista = ?";
-		System.out.println(sql);
+		String sql = "SELECT * FROM artistas WHERE codigo_artista = ?";
+		
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, pro.getCodigo_artista());
+			ps.setInt(1, pro.getCodigo_artista());
 			rs = ps.executeQuery();
 			
 			if(rs.next())
 			{
-				pro.setId(Integer.parseInt( rs.getString("id")));
-				pro.setCodigo_artista(rs.getString("Codigo"));
-				pro.setNombre_artista(rs.getString("Nombre Artista"));
-				pro.setGenero_musica(rs.getString("Genero Musica"));
-				pro.setNacionalidad(rs.getString("Nacionalidad"));
-				System.out.println("busvando artista");
+				
+				pro.setCodigo_artista(rs.getInt("codigo_artista"));
+				pro.setNombre_artista(rs.getString("nombre_artista"));
+				pro.setGenero_musica(rs.getString("genero_musical_artista"));
+				pro.setNacionalidad(rs.getString("nacionalidad_artista"));
+				pro.setEstado(rs.getString("estado"));
+				System.out.println("buscando artista");
 				return true;
 			}
 			return false;
@@ -138,7 +138,7 @@ public class ConsultaArtista extends Conexion{
 			try {
 				con.close();
 			}catch(SQLException e) {
-				System.out.println(e);
+				System.err.println(e);
 			}
 		}
 		

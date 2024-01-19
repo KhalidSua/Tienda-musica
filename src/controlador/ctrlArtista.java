@@ -20,7 +20,7 @@ public class ctrlArtista implements ActionListener {
 		this.mod = mod;
 		this.modC = modC;
 		this.frm = frm;
-		
+			
 		this.frm.btnLimpiar.addActionListener(this);
 		this.frm.btnModificar.addActionListener(this);
 		this.frm.btnBuscar.addActionListener(this);
@@ -33,7 +33,7 @@ public class ctrlArtista implements ActionListener {
 	{
 		frm.setTitle("Producto");
 		frm.setLocationRelativeTo(null);
-		frm.txtId.setVisible(false);
+		frm.txtCodigo.setVisible(true);
 	}
 		
 	@Override
@@ -41,7 +41,7 @@ public class ctrlArtista implements ActionListener {
 		// TODO Auto-generated method stub
 		if(e.getSource() == frm.btnGuardar) {
 			System.out.println("guardar");
-			mod.setCodigo_artista(frm.txtCodigo.getText());
+			mod.setCodigo_artista(Integer.parseInt((frm.txtCodigo.getText())));
 			mod.setNombre_artista(frm.txtNombre.getText());
 			mod.setGenero_musica(frm.txtGeneroMusical.getText());
 			mod.setNacionalidad(frm.txtNacionalidad.getText());
@@ -56,8 +56,7 @@ public class ctrlArtista implements ActionListener {
 		}
 		
 		if(e.getSource() == frm.btnModificar) {
-			mod.setId(Integer.parseInt(frm.txtId.getText()));
-			mod.setCodigo_artista(frm.txtCodigo.getText());
+			mod.setCodigo_artista(Integer.parseInt((frm.txtCodigo.getText())));
 			mod.setNombre_artista(frm.txtNombre.getText());
 			mod.setGenero_musica(frm.txtGeneroMusical.getText());
 			mod.setNacionalidad(frm.txtNacionalidad.getText());
@@ -71,11 +70,11 @@ public class ctrlArtista implements ActionListener {
 		}
 		
 		if(e.getSource() == frm.btnBuscar) {
-			mod.setCodigo_artista(frm.txtCodigo.getText());
+			mod.setCodigo_artista(Integer.parseInt((frm.txtCodigo.getText())));
 			
 			if(modC.buscar(mod))
 			{
-				frm.txtId.setText(String.valueOf(mod.getId()));
+				mod.setCodigo_artista(Integer.parseInt((frm.txtCodigo.getText())));
 				frm.txtCodigo.setText(String.valueOf(mod.getCodigo_artista()));
 				frm.txtNombre.setText(String.valueOf(mod.getNombre_artista()));
 				frm.txtNacionalidad.setText(String.valueOf(mod.getNacionalidad()));
@@ -94,7 +93,7 @@ public class ctrlArtista implements ActionListener {
 	}
 	
 	public void limpiar() {
-		frm.txtId.setText(null);
+		frm.txtCodigo.setText(null);
 		frm.txtCodigo.setText(null);
 		frm.txtGeneroMusical.setText(null);
 		frm.txtNombre.setText(null);

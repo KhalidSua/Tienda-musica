@@ -7,8 +7,8 @@ public class Artista {
 		
 	}
 	
-	private int id;
-	private String codigo_artista;
+
+	private int codigo_artista;
 	private String nombre_artista;
 	private String genero_musica;
 	private String nacionalidad;
@@ -16,16 +16,10 @@ public class Artista {
 	
 	
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getCodigo_artista() {
+	public int getCodigo_artista() {
 		return codigo_artista;
 	}
-	public void setCodigo_artista(String codigo_artista) {
+	public void setCodigo_artista(int codigo_artista) {
 		this.codigo_artista = codigo_artista;
 	}
 	public String getNombre_artista() {

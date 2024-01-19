@@ -1,3 +1,4 @@
+
 package modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -25,7 +26,7 @@ public class Conexion {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = (Connection)DriverManager.getConnection(this.url,this.user,this.password);
 			
-			
+			 	
 		}catch(SQLException e) {
 			System.out.println(e);
 		}
