@@ -22,10 +22,7 @@ public class FrmArtista extends JFrame {
 	public JTextPane txtNombre;
 	public JTextPane txtGeneroMusical;
 	public JTextPane txtNacionalidad;
-	public JLabel lblCodArtista;
-	public JLabel lblNombreArtista;
-	public JLabel lblGeneroMusical;
-	public JLabel lblNacionalidad;
+	public JTextPane txtEstado;
 
 	
 
@@ -54,19 +51,19 @@ public class FrmArtista extends JFrame {
 		txtNacionalidad.setBounds(169, 184, 90, 20);
 		contentPane.add(txtNacionalidad);
 		
-		lblCodArtista = new JLabel("Codigo Artista");
+		JLabel lblCodArtista = new JLabel("Codigo Artista");
 		lblCodArtista.setBounds(37, 38, 99, 21);
 		contentPane.add(lblCodArtista);
 		
-		lblNombreArtista = new JLabel("Nombre Artista");
+		JLabel lblNombreArtista = new JLabel("Nombre Artista");
 		lblNombreArtista.setBounds(37, 85, 99, 21);
 		contentPane.add(lblNombreArtista);
 		
-		lblGeneroMusical = new JLabel("Genero Musical");
+		JLabel lblGeneroMusical = new JLabel("Genero Musical");
 		lblGeneroMusical.setBounds(37, 141, 99, 21);
 		contentPane.add(lblGeneroMusical);
 		
-		lblNacionalidad = new JLabel("Nacionalidad");
+		JLabel lblNacionalidad = new JLabel("Nacionalidad");
 		lblNacionalidad.setBounds(37, 184, 99, 21);
 		contentPane.add(lblNacionalidad);
 		
@@ -106,7 +103,7 @@ public class FrmArtista extends JFrame {
 		lblEstado.setBounds(37, 225, 99, 21);
 		contentPane.add(lblEstado);
 		
-		JTextPane txtEstado = new JTextPane();
+		txtEstado = new JTextPane();
 		txtEstado.setBounds(169, 225, 90, 20);
 		contentPane.add(txtEstado);
 	}	

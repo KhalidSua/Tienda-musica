@@ -60,6 +60,7 @@ public class ctrlArtista implements ActionListener {
 			mod.setNombre_artista(frm.txtNombre.getText());
 			mod.setGenero_musica(frm.txtGeneroMusical.getText());
 			mod.setNacionalidad(frm.txtNacionalidad.getText());
+			mod.setEstado(frm.txtEstado.getText());
 			
 			if(modC.modificar(mod))
 			{
